@@ -18,25 +18,26 @@ bool isPrimeNumber(unsigned long number)
     for(; i < number; i ++)
     {
         if (number%i == 0) break;
+        if (i*i > number) break;
     }
 
-    if( i < number) 
-        retVal = false;
-    else 
+    if( i*i > number || i >= number) // need prof this
         retVal = true;
+    else 
+        retVal = false;
 
     return retVal;
 }
 
 void main (void)
 {
-    unsigned long sum = 0;
-    unsigned long TwoMil = 2000000;
+    unsigned long long sum = 0;
+    unsigned long TwoMil = 1999999;
 
     for (int i = 2; i < TwoMil; i++)
     {
         if(isPrimeNumber(i) == true)
             sum+=i;
     }
-    printf("\n%llu",sum);
+    printf("\n%llu",sum); //notice the format specifier
 }
