@@ -14,12 +14,17 @@ bool isPrimeNumber(int number)
     for (; i < number; i++)
     {
         if (number%i == 0) break;
+        if (i*i > number) break;
     }
-    if ( i == number)
+    if ( i == number || i*i> number)
     {
         retVal = true; 
     }
-    
+    else
+    {
+        retVal = false;
+    }
+
     return retVal;
 }
 
